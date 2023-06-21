@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="apple-touch-icon" scr="https://hhnios.github.io/img/hhn.png">
+    <title>Trang chủ HHNiOS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://hhnios.github.io/img/hhn.png">
+    <link rel="shortcut icon" type="image/png" href="https://hhnipa.github.io/repo/CydiaIcon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <style>
+        .lienket a {
+            text-decoration: none
+        }
+
+        .popup:target {
+            display: block;
+        }
+
+        body {
+            margin: 0;
+            font-family: arial;
+            font-size: 1.2em;
+            color: #111;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            margin: 10% auto;
+            text-align: center;
+            line-height: 2em;
+        }
+
+        .button {
+            border: 3px solid #111;
+            color: #111;
+            text-decoration: none;
+        }
+
+        .popup {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            z-index: 2;
+        }
+
+        #xmas-popup .popup-content {
+            width: 70%;
+            height: auto;
+            background: #bbbbbb;
+            margin: 100px auto;
+            position: relative;
+            border: 5px solid #ffffff00;
+            z-index: 1;
+        }
+
+        .close {
+            position: absolute;
+            top: 5px;
+            right: 1%;
+            border-radius: 50%;
+            background: #222;
+            border: 3px solid #ffffff;
+            color: #fff;
+            text-decoration: none;
+            line-height: 0;
+            padding: 9px 0 11px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .popup:target {
+            display: block;
+        }
+
+        .Modern-Slider .item a {
+            margin: 10 5px;
+            margin-block-start: 1em;
+        }
+
+        a.main-stroked-button {
+            font-size: 13px;
+            border-radius: 25px;
+            padding: 11px 25px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+    </style>
+    <style>
+        @keyframes icon-luc-lac {
+	0% {
+			transform:rotate(0) scale(1) skew(1deg);
+	}
+	10% {
+			transform:rotate(-25deg) scale(1) skew(1deg);
+	}
+	20% {
+			transform:rotate(25deg) scale(1) skew(1deg);
+	}
+	30% {
+			transform:rotate(-25deg) scale(1) skew(1deg);
+	}
+	40% {
+			transform:rotate(25deg) scale(1) skew(1deg);
+	}
+	50% {
+			transform:rotate(0) scale(1) skew(1deg);
+	}
+	100% {
+			transform:rotate(0) scale(1) skew(1deg);
+	}
+}
+@keyframes vien-nho-zoom {
+	0% {
+			transform:rotate(0) scale(.7) skew(1deg);
+			opacity:.2;
+	}
+	50% {
+			transform:rotate(0) scale(1) skew(1deg);
+			opacity:.5;
+	}
+	100% {
+			transform:rotate(0) scale(.7) skew(1deg);
+			opacity:.2;
+	}
+}
+@keyframes vien-lon-zoom {
+	0% {
+			transform:rotate(0) scale(.5) skew(1deg);
+			opacity:.1;
+	}
+	30% {
+			transform:rotate(0) scale(.7) skew(1deg);
+			opacity:.1;
+	}
+	100% {
+			transform:rotate(0) scale(1) skew(1deg);
+			opacity:.1;
+	}
+}
+.btn-call-fixed {
+	margin-bottom:20px;
+}
+.btn-call-fixed .icon-wrap {
+	float:left;
+	position:relative;
+	z-index:1;
+	width:60px;
+	height:60px;
+	box-shadow:0 0 0 2px rgba(255,255,255,.8);
+	border-radius:50%;
+}
+.btn-call-fixed .icon-wrap i.fa {
+	font-size:30px;
+	color:#ffffff;
+	background:#008cff;
+	width:60px;
+	height:60px;
+	position:absolute;
+	z-index:1;
+	top:0;
+	left:0;
+	border-radius:50%;
+	text-align:center;
+	line-height:60px;
+	animation:icon-luc-lac 1.2s infinite ease-in-out;
+}
+
+
+.btn-call-fixed .btn-text {
+	display:none;
+	float:left;
+	padding:5px 20px;
+	font-size:13px;
+	font-weight:bold;
+	color:#008cff;
+	line-height:22px;
+	border-radius:999px;
+	background:#fff;
+	box-shadow:0 0 6px rgba(0,0,0,.1);
+	position:absolute;
+	z-index:1;
+	top:0;
+	right:calc(100%);
+	white-space:nowrap;
+}
+
+.btn-call-fixed[data-type='zalo'] .icon-wrap i.fa:before {
+	display:inline;
+	content:"Zalo";
+}
+
+.btn-call-fixed[data-type='zalo'] .icon-wrap:hover .border-1,.btn-call-fixed[data-type='zalo'] .icon-wrap:hover .border-2 {
+	display:block;
+}
+.btn-call-fixed[data-type='zalo'] .btn-text {
+	color:#0068ff;
+}
+.btn-call-fixed[data-type='viber'] .icon-wrap i.fa {
+	background:#6145d5;
+	font-family:'FontAwesome';
+	font-size:15px;
+	font-weight:bold;
+	animation:none;
+}
+@media(min-width:1200px) {
+	.btn-call-fixed {
+			position:relative;
+			z-index:1;
+	}
+	.btn-call-fixed:hover .btn-text {
+			display:block;
+	}
+}
+@media(max-width:991px) {
+	.btn-calls-fixed {
+			right:10px;
+	}
+	.btn-calls-fixed .btn-call-fixed .icon-wrap {
+			width:36px;
+			height:36px;
+	}
+	.btn-calls-fixed .btn-call-fixed .icon-wrap i.fa {
+			width:36px;
+			height:36px;
+			line-height:36px;
+			font-size:18px;
+	}
+	.btn-calls-fixed .btn-call-fixed .icon-wrap .border-1 {
+			width:56px;
+			height:56px;
+			top:-10px;
+			left:-10px;
+	}
+	.btn-calls-fixed .btn-call-fixed .icon-wrap .border-2 {
+			width:46px;
+			height:46px;
+			top:-5px;
+			left:-5px;
+	}
+	.btn-calls-fixed .btn-call-fixed .btn-text {
+			padding:3px 15px;
+			line-height:18px;
+	}
+	.btn-calls-fixed .btn-call-fixed .btn-text span:last-child {
+			font-size:15px;
+	}
+	.btn-calls-fixed .btn-call-fixed[data-type='zalo'] .icon-wrap i.fa,.btn-calls-fixed .btn-call-fixed[data-type='viber'] .icon-wrap i.fa {
+			font-size:12px;
+	}
+	.btn-calls-fixed .btn-call-fixed[data-type='facebook'] .btn-text span:last-child {
+			font-size:12px;
+	}
+	.btn-calls-fixed .btn-go-to-top {
+			width:36px;
+			height:36px;
+			line-height:36px;
+			font-size:18px;
+	}
+	.ctrlq.fb-button {
+			right:5px !important;
+	}
+}
+.btn-calls-fixed {
+	position:fixed;
+	z-index:2;
+	bottom:60px;
+	right:24px;
+	display:flex;
+	flex-direction:column;
+}
+.btn-calls-fixed[data-small-size='1'] {
+	right:10px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed .icon-wrap {
+	width:36px;
+	height:36px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed .icon-wrap i.fa {
+	width:36px;
+	height:36px;
+	line-height:36px;
+	font-size:50px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed .icon-wrap .border-2 {
+	width:46px;
+	height:46px;
+	top:-5px;
+	left:-5px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed .btn-text {
+	padding:3px 15px;
+	line-height:15px;
+	right:calc(100%+10px);
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed .btn-text span:last-child {
+	font-size:15px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='zalo'] .icon-wrap i.fa,.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='viber'] .icon-wrap i.fa {
+	font-size:12px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='facebook-page'] .icon-wrap i.fa,.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='twitter'] .icon-wrap i.fa,.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='youtube'] .icon-wrap i.fa,.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='instagram'] .icon-wrap i.fa {
+	font-size:15px;
+}
+.btn-calls-fixed[data-small-size='1'] .btn-call-fixed[data-type='facebook'] .btn-text span:last-child {
+	font-size:12px;
+}
+
+.btn-go-to-top {
+	display:inline-block;
+	width:60px;
+	height:60px;
+	opacity:.5;
+	border-radius:50%;
+	text-align:center;
+	line-height:58px;
+	color:#fff;
+	font-size:20px;
+	box-shadow:0 0 0 2px rgba(255,255,255,.8);
+}
+@media(min-width:1200px) {
+	.btn-go-to-top:hover {
+			opacity:1;
+			color:#fff;
+	}
+}
+.ctrlq.fb-button {
+	bottom:10px !important;
+}
+.fixed-bottom-btn {
+	position:relative;
+	z-index:1;
+	color:#fff;
+	padding:1px 15px 1px 30px;
+	border-radius:999px;
+	height:26px;
+}
+.fixed-bottom-btn i.fa {
+	position:absolute;
+	z-index:1;
+	top:0;
+	left:0;
+	background:#fff;
+	width:24px;
+	height:24px;
+	border-radius:50%;
+	line-height:24px;
+}
+.fixed-bottom-btn i.fa.fa-zalo {
+	line-height:22px;
+}
+.fixed-bottom-btn i.fa.fa-zalo:before {
+	content:"Zalo";
+	font-size:10px;
+	font-weight:bold;
+}
+.fixed-bottom-btn:hover {
+	color: #fff;
+}
+    </style>
+</head>
+
+<body>
+    <style>
+    
+    </style>
+    
+    <div class="btn-calls-fixed" data-small-size="1">
+    <a href="https://zalo.me/hhnios" title="0375053471" target="_blank" rel="nofollow" data-type="zalo" class="btn-call-fixed">
+        <div class="icon-wrap">
+            <i class="fa fa-zalo"></i>
+        </div>
+        <div class="btn-text">
+            <span>Zalo</span><br>
+            <span><span>0901234567</span></span>
+        </div>
+        </a>
+    </div>
+    <marquee style="background: green; color: white; border: 1px solid #000">• Nhận cọc trước Hack Liên Quân Jailbreak mùa sau giá chỉ 250k •</marquee>
+    <center>
+        <div>
+            <h1>Hack Game</h1>
+            <div>
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>text</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#1" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">Hack Maps Liên Quân <br> Jailbreak</h5>
+                    <h3>Fang, hỗ trợ acc test Hack,...</h3>
+                    <h3>Giá: 250.000VND/1 tháng, <br> 350.000VND/1 mùa</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+            <div>
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>text</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#2" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">Hack Maps No Jailbreak</h5>
+                    <h3>Chơi kín, cài trực tiếp qua AppCenter, <br>hỗ trợ acc test Hack.</h3>
+                    <h3>Giá: 250.000VND/1 tháng, <br> 600.000VND/1 mùa</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+            <hr>
+        </div>
+        <center>
+            <div>
+                <h1 id="cc">Chứng Chỉ</h1>
+                <div>
+                    <!-- popup code -->
+                    <div id="xmas-popup" class="popup">
+                        <div class="popup-content">
+                            <h2>text</h2>
+                            <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                            <a href="#1" class="close">x</a>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h5 class="text5">𝘿𝙞̣𝙘𝙝 𝙫𝙪̣ 𝙘𝙪𝙣𝙜 𝙘𝙖̂́𝙥 𝙘𝙝𝙪̛́𝙣𝙜 𝙘𝙝𝙞̉ 1 𝙉𝙖̆𝙢.</h5>
+                        <h6 class="text7">•𝐁𝐚̉𝐨 𝐡𝐚̀𝐧𝐡: 5 𝐓𝐡𝐚́𝐧𝐠 , 𝐋𝐨̂̃𝐢 𝟏 đ𝐨̂̉𝐢 𝟏•<br>•𝟏 𝐓𝐡𝐢𝐞̂́𝐭 𝐛𝐢̣ 𝐬ử 𝐝𝐮̣𝐧𝐠•<br>•Chỉ bảo hành, đéo hoàn•</h6>
+                        <h3>𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐜𝐨́ 𝐜𝐡𝐮̛́𝐧𝐠 𝐜𝐡𝐢̉ : Lấy ngay </h3>
+                        <h3>Giá: 250.000VND/1 năm</h3>
+                        <br>
+                        <br>
+                        <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ</a>
+                        <br>
+                        <br>
+                    </div>
+                    <!-- normal page code -->
+                    <br>
+	            <!-- popup code -->
+                    <div id="xmas-popup" class="popup">
+                        <div class="popup-content">
+                            <h2>text</h2>
+                            <img src="https://www.facebook.com/weansios" alt="xmas-sale" />
+                            <a href="#1" class="close">x</a>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h5 class="text5">𝘿𝙞̣𝙘𝙝 𝙫𝙪̣ 𝙘𝙪𝙣𝙜 𝙘𝙖̂́𝙥 𝙘𝙝𝙪̛́𝙣𝙜 𝙘𝙝𝙞̉ 1 𝙉𝙖̆𝙢.</h5>
+                        <h6 class="text7">•𝐁𝐚̉𝐨 𝐡𝐚̀𝐧𝐡: 3 𝐓𝐡𝐚́𝐧𝐠 , 𝐋𝐨̂̃𝐢 𝟏 đ𝐨̂̉𝐢 𝟏•<br>•𝟏 𝐓𝐡𝐢𝐞̂́𝐭 𝐛𝐢̣ 𝐬ử 𝐝𝐮̣𝐧𝐠•<br>•Chỉ bảo hành, đéo hoàn•</h6>
+                        <h3>𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐜𝐨́ 𝐜𝐡𝐮̛́𝐧𝐠 𝐜𝐡𝐢̉ :3 𝐍𝐠𝐚̀𝐲</h3>
+                        <h3>Giá: 180.000VND/1 năm</h3>
+                        <br>
+                        <br>
+                        <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ</a>
+                        <br>
+                        <br>
+                    </div>
+                    <!-- normal page code -->
+                    <br>
+                </div>
+                <hr>
+            </div>
+        <br>
+        <div>
+            <h1>Dịch Vụ Khác</h1>
+            <div>
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>text</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#3" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">File Key</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>dùng sever key của <a class="text" href="https://v3.baontq.xyz" tabindex="0">baontq</a>.</h3>
+                    <h3>Giá: 25.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+		<div class="text-content">
+                    <h5 class="text5">File Key Framework</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>dùng sever key của <a class="text" href="https://v3.baontq.xyz" tabindex="0">baontq</a>.</h3>
+                    <h3>Giá: 100.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+            <div>
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>text</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#4" class="close">x</a>
+                    </div>
+                </div>
+            <div>
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>text</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#4" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">File Info</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>tùy chỉnh màu sắc, số nút, link.</h3>
+                    <h3>Giá: 25.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+            <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>text</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#4" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">File Text Framework</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>tùy chỉnh màu sắc, số nút, link.</h3>
+                    <h3>Giá: 80.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+            <div id="#5">
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>texttttt</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#5" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">File Fps</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>tùy chỉnh màu sắc, ngày tháng, chữ,...</h3>
+                    <h3>Giá: 30.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+		<div class="text-content">
+                    <h5 class="text5">File Fps Framework</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>tùy chỉnh màu sắc, số nút, link.</h3>
+                    <h3>Giá: 80.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+            <div id="#5">
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>texttttt</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#5" class="close">x</a>
+                    </div>
+                </div>
+                <br>
+		<div id="#5">
+                <!-- popup code -->
+                <div id="xmas-popup" class="popup">
+                    <div class="popup-content">
+                        <h2>texttttt</h2>
+                        <img src="https://hhnios.github.io/img/hhn.png" alt="xmas-sale" />
+                        <a href="#5" class="close">x</a>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <h5 class="text5">File Text</h5>
+                    <h3>Dùng để tiêm vào ipa, Hỗ trợ không Jailbreak, <br>tùy chỉnh màu sắc, chữ.<br>Chữ nhỏ hiện ở góc ứng dụng nằm ngang.</h3>
+                    <h3>Giá: 30.000VND</h3>
+                    <br>
+                    <br>
+                    <a href="https://www.facebook.com/weansios" class="main-stroked-button" tabindex="0">Liên hệ Facebook</a>
+                    <br>
+                    <br>
+                </div>
+                <!-- normal page code -->
+                <br>
+            </div>
+        </div>
+        <br>
+        <p class="text6">Copyright © by HHN iOS</p>
+    </center>
+    <br><br><br><br>
+    <nav class="nav">
+        <a href="https://hhnios.github.io" class="nav__link">
+      <embed class="tab" src="img/home.png">
+       <span class="navtxt1" style="color:#ffffff;">Trang chủ</span>
+     </a>
+        <a href="https://hhnipa.github.io" class="nav__link">
+      <embed class="tab2" src="img/ipa.png">
+       <span class="navtxt1" style="color:#ffffff;">Download iPA</span>
+     </a>
+        <a href="#" class="nav__link">
+        <embed class="tab" src="img/dv.png">
+         <span class="navtxt1" style="color:#d9ff00;">Dịch vụ</span>
+       </a>
+        <a href="https://hhnios.github.io/sign.html" class="nav__link">
+      <embed class="tab3" src="img/ki.png">
+       <span class="navtxt1" style=" color:#ffffff;">Kí iPA</span>
+     </a>
+
+    </nav>
+</body>
+
+</html>
