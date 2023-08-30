@@ -7,35 +7,32 @@
 <title>HHNiOS - Dịch Vụ IPA</title>
 <style>
   /* Global Styles */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('https://images2.alphacoders.com/104/1041566.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #000;
-  }
-  html,
-  body {
-   
-    overflow: auto;
-    height: 100%;
-  }
-  .background-image {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*width: 100vw;*/
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
-    opacity: 0.8;
-    transition: opacity 0.5s ease;
-  }
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: -1;
+      opacity: 0.8;
+      transition: opacity 0.5s ease;
+    }
 
   /* Container Styles */
   .content-container {
@@ -125,7 +122,7 @@
 
   /* Text Content Styles */
   .text-content {
-    background-color: rgba(255, 255, 255, 0.384);
+    background-color: rgba(97, 97, 97, 0.541);
     border-radius: 10px;
     padding: 20px;
     margin: 10px 0;
@@ -135,12 +132,12 @@
   .text-content h1 {
     margin: 0;
     font-size: 28px;
-    color: #007aff;
+    color: #007bff;
   }
 
   .text-content h3 {
     font-size: 24px;
-    color: #00e1ff;
+    color: hsl(187, 100%, 76%);
     margin-top: 20px;
   }
 
@@ -222,7 +219,7 @@
 </style>
 </head>
 <body>
-  <div class="background-image background-1"></div>
+  <div class="background-image" style="background-image: url('https://images2.alphacoders.com/104/1041566.jpg');"></div>
   <div class="header">
     <h1>Dịch vụ</h1>
   </div>
@@ -245,6 +242,7 @@
           Dùng để tiêm vào ipa, hỗ trợ không cần Jailbreak, dùng server key của <a href="https://v3.baontq.xyz" class="text">baontq</a>.
         </p>
         <p>Giá: 100.000VND</p>
+        <br>
         <a href="https://www.facebook.com/weansios" class="main-button">Liên hệ Facebook</a>
       </div>
       <!-- Add more content here as needed -->
@@ -254,6 +252,7 @@
           Dùng để tiêm vào ipa, hỗ trợ không cần Jailbreak, dùng server key của <a href="https://v3.baontq.xyz" class="text">baontq</a>.
         </p>
         <p>Giá: 100.000VND</p>
+        <br>
         <a href="https://www.facebook.com/weansios" class="main-button">Liên hệ Facebook</a>
       </div>
       <!-- Add more content here as needed -->
@@ -263,6 +262,7 @@
           Dùng để tiêm vào ipa, hỗ trợ không cần Jailbreak, dùng server key của <a href="https://v3.baontq.xyz" class="text">baontq</a>.
         </p>
         <p>Giá: 100.000VND</p>
+        <br>
         <a href="https://www.facebook.com/weansios" class="main-button">Liên hệ Facebook</a>
       </div>
       <!-- Add more content here as needed -->
@@ -273,6 +273,7 @@
           Dùng để tiêm vào ipa, hỗ trợ không cần Jailbreak, dùng server key của <a href="https://v3.baontq.xyz" class="text">baontq</a>.
         </p>
         <p>Giá: 100.000VND</p>
+        <br>
         <a href="https://www.facebook.com/weansios" class="main-button">Liên hệ Facebook</a>
       </div>
       <!-- Add more content here as needed -->
@@ -282,20 +283,20 @@
   <script>
     let currentBackground = 1;
 
-    function changeBackground() {
-      const background = document.querySelector('.background-image');
-      const content = document.querySelector('.content-container');
+function changeBackground() {
+  const background = document.querySelector('.background-image');
+  const content = document.querySelector('.content-container');
 
-      currentBackground = (currentBackground === 1) ? 2 : 1;
+  currentBackground = (currentBackground === 1) ? 2 : 1;
 
-      background.classList.remove('background-1', 'background-2');
-      background.classList.add(`background-${currentBackground}`);
-    }
+  background.style.backgroundImage = `url('https://images2.alphacoders.com/104/1041566${currentBackground}.jpg')`;
+}
 
-    function toggleTab() {
-      const tabContent = document.querySelector('.tab-content');
-      tabContent.classList.toggle('open');
-    }
+function toggleTab() {
+  const tabContent = document.querySelector('.tab-content');
+  tabContent.classList.toggle('open');
+}
+
   </script>
 </body>
 </html>
